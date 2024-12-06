@@ -15,6 +15,7 @@ import {
 import { SourceControlManager } from "./source_control_manager";
 import { fromSvnUri } from "./uri";
 import { SvnUriAction, RepositoryChangeEvent } from "./common/types";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { debounce, throttle } from "./decorators";
 import {
   filterEvent,

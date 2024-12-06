@@ -2,6 +2,7 @@ import { Event, Uri, workspace, EventEmitter, RelativePattern } from "vscode";
 import { watch } from "fs";
 import { exists } from "../fs";
 import { join } from "path";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { debounce } from "../decorators";
 import {
   anyEvent,

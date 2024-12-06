@@ -1,5 +1,6 @@
 import { Disposable, window } from "vscode";
 import { Status } from "../common/types";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { debounce } from "../decorators";
 import { SourceControlManager } from "../source_control_manager";
 import { IDisposable, setVscodeContext } from "../util";

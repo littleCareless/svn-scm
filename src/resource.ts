@@ -7,6 +7,7 @@ import {
   Uri
 } from "vscode";
 import { PropStatus, Status } from "./common/types";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { memoize } from "./decorators";
 import { configuration } from "./helpers/configuration";
 

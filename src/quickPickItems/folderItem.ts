@@ -1,6 +1,7 @@
 import { QuickPickItem } from "vscode";
 import { IBranchItem } from "../common/types";
 import { ISvnListItem } from "../common/types";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { memoize } from "../decorators";
 import { getBranchName } from "../helpers/branch";
 

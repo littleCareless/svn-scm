@@ -1,5 +1,6 @@
 import { posix as path } from "path";
 import { Uri } from "vscode";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { memoize } from "./decorators";
 
 export function pathOrRoot(uri: Uri): string {

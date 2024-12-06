@@ -17,6 +17,7 @@ import {
   IOpenRepository,
   RepositoryState
 } from "./common/types";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { debounce } from "./decorators";
 import { readdir, stat } from "./fs";
 import { configuration } from "./helpers/configuration";

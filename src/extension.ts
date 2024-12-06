@@ -66,6 +66,9 @@ async function init(
     toDisposable(() => svn.onOutput.removeListener("log", onOutput))
   );
   disposables.push(toDisposable(messages.dispose));
+
+  // Return sourceControlManager for access to repositories
+  return sourceControlManager;
 }
 
 async function _activate(context: ExtensionContext, disposables: Disposable[]) {
@@ -74,14 +77,16 @@ async function _activate(context: ExtensionContext, disposables: Disposable[]) {
   disposables.push(outputChannel);
 
   const showOutput = configuration.get<boolean>("showOutput");
-
   if (showOutput) {
     outputChannel.show();
   }
 
+  let sourceControlManager;
   const tryInit = async () => {
     try {
-      await init(context, outputChannel, disposables);
+      // 保存init返回的sourceControlManager
+      sourceControlManager = await init(context, outputChannel, disposables);
+      return sourceControlManager;
     } catch (err) {
       if (!/Svn installation not found/.test(err.message || "")) {
         throw err;
@@ -143,10 +148,13 @@ async function _activate(context: ExtensionContext, disposables: Disposable[]) {
       } else if (choice === neverShowAgain) {
         await configuration.update("ignoreMissingSvnWarning", true);
       }
+      return undefined;
     }
   };
 
+  // 等待初始化完成并返回sourceControlManager
   await tryInit();
+  return sourceControlManager;
 }
 
 export async function activate(context: ExtensionContext) {
@@ -155,7 +163,24 @@ export async function activate(context: ExtensionContext) {
     new Disposable(() => Disposable.from(...disposables).dispose())
   );
 
-  await _activate(context, disposables).catch(err => console.error(err));
+  let sourceControlManager: any;
+  try {
+    sourceControlManager = await _activate(context, disposables);
+  } catch (err) {
+    console.error(err);
+  }
+
+  return {
+    name: "svn-scm",
+    getAPI() {
+      return sourceControlManager;
+    },
+    // 返回repositories的访问器
+    async getRepositories() {
+      await sourceControlManager?.isInitialized;
+      return sourceControlManager?.repositories || [];
+    }
+  };
 }
 
 // this method is called when your extension is deactivated

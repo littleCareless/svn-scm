@@ -14,6 +14,7 @@ import {
   ISvnPath,
   ISvnListItem
 } from "./common/types";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { sequentialize } from "./decorators";
 import * as encodeUtil from "./encoding";
 import { exists, writeFile, stat, readdir } from "./fs";

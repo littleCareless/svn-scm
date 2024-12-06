@@ -2,6 +2,7 @@ import { posix as path } from "path";
 import * as nativepath from "path";
 import { Uri } from "vscode";
 import { ISvnInfo } from "./common/types";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { memoize } from "./decorators";
 import { pathOrRoot, SvnRI } from "./svnRI";
 

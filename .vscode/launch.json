@@ -8,12 +8,12 @@
       "request": "launch",
       "runtimeExecutable": "${execPath}",
       "args": [
-        "--disable-extensions",
+        // "--disable-extensions",
         "--extensionDevelopmentPath=${workspaceRoot}"
       ],
       "stopOnEntry": false,
       "sourceMaps": true,
-      "outFiles": ["${workspaceRoot}/out/**/*.js"],
+      "outFiles": ["${workspaceRoot}/out/**/*.js"]
     },
     {
       "name": "Launch Tests",
@@ -22,8 +22,8 @@
       "runtimeExecutable": "${execPath}",
       "args": [
         "--extensionDevelopmentPath=${workspaceRoot}",
-        "--extensionTestsPath=${workspaceRoot}/out/test",
-        "--disable-extensions"
+        "--extensionTestsPath=${workspaceRoot}/out/test"
+        // "--disable-extensions"
       ],
       "stopOnEntry": false,
       "sourceMaps": true,

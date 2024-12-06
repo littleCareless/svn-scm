@@ -30,6 +30,7 @@ import {
   IStoredAuth,
   ISvnListItem
 } from "./common/types";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { debounce, globalSequentialize, memoize, throttle } from "./decorators";
 import { exists } from "./fs";
 import { configuration } from "./helpers/configuration";
