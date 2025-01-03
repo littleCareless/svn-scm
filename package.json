@@ -1,9 +1,9 @@
 {
-  "name": "svn-scm",
-  "displayName": "SVN",
+  "name": "svn-scm-ai",
+  "displayName": "SVN-AI",
   "description": "Integrated Subversion source control",
   "version": "2.18.1",
-  "publisher": "johnstoncode",
+  "publisher": "littleCareless",
   "engines": {
     "vscode": "^1.53.0"
   },
